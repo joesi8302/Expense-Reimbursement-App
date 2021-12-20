@@ -1,0 +1,1288 @@
+2021-12-10 13:15:26 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [42102-200]
+2021-12-10 13:15:26 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:15:26 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:15:26 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:15:26 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 13:47:33 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID SERIAL INT[*] PRIMARY KEY,
+	USER_ROLE VARCHAR(10) NOT NULL
+);"; expected "(, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial int PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42001-200]
+2021-12-10 13:47:33 ERROR ReimbUtil:126 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+CREATE TABLE ERS_USERS(
+	ERS_USERS_ID serial PRIMARY KEY,
+	ERS_USERNAME varchar(50) NOT NULL UNIQUE,
+	ERS_PASSWORD varchar(50) NOT NULL,
+	USER_FIRST_NAME varchar(100) NOT NULL,
+	USER_LAST_NAME varchar(100) NOT NULL,
+	USER_EMAIL varchar(150) NOT NULL UNIQUE,
+	USER_ROLE_ID int NOT NULL REFERENCES ERS_USER_ROLES(ERS_USER_ROLE_ID)
+); [42102-200]
+2021-12-10 13:47:33 ERROR ReimbUtil:42 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID SERIAL PRIMARY KEY,
+	REIMB_AMOUNT DOUBLE PRECISION NOT NULL,
+	REIMB_SUBMITTED TIMESTAMP DEFAULT NOW(),
+	REIMB_RESOLVED TIMESTAMP,
+	REIMB_DESCRIPTION VARCHAR(250),
+	REIMB_RECEIPT BYTEA,
+	REIMB_AUTHOR INT NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER INT REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT[*] 1,
+	REIMB_TYPE_ID INT NOT NULL ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+);"; expected "INDEX, ON, NOT, DEFERRABLE, ,, )"; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT now(),
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT 1,
+	REIMB_TYPE_ID int NOT NULL ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42001-200]
+2021-12-10 13:47:33 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [42102-200]
+2021-12-10 13:47:33 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:47:33 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:47:33 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:47:33 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 13:47:33 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+DROP TABLE ers_user_roles; [42102-200]
+2021-12-10 13:47:33 ERROR ReimbUtil:211 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+DROP TABLE ers_users; [42102-200]
+2021-12-10 13:47:33 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 13:52:36 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID SERIAL INT[*] PRIMARY KEY,
+	USER_ROLE VARCHAR(10) NOT NULL
+);"; expected "(, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial int PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42001-200]
+2021-12-10 13:52:36 ERROR ReimbUtil:126 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+CREATE TABLE ERS_USERS(
+	ERS_USERS_ID serial PRIMARY KEY,
+	ERS_USERNAME varchar(50) NOT NULL UNIQUE,
+	ERS_PASSWORD varchar(50) NOT NULL,
+	USER_FIRST_NAME varchar(100) NOT NULL,
+	USER_LAST_NAME varchar(100) NOT NULL,
+	USER_EMAIL varchar(150) NOT NULL UNIQUE,
+	USER_ROLE_ID int NOT NULL REFERENCES ERS_USER_ROLES(ERS_USER_ROLE_ID)
+); [42102-200]
+2021-12-10 13:52:36 ERROR ReimbUtil:42 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID SERIAL PRIMARY KEY,
+	REIMB_AMOUNT DOUBLE PRECISION NOT NULL,
+	REIMB_SUBMITTED TIMESTAMP DEFAULT NOW(),
+	REIMB_RESOLVED TIMESTAMP,
+	REIMB_DESCRIPTION VARCHAR(250),
+	REIMB_RECEIPT BYTEA,
+	REIMB_AUTHOR INT NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER INT REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT[*] 1,
+	REIMB_TYPE_ID INT NOT NULL ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+);"; expected "INDEX, ON, NOT, DEFERRABLE, ,, )"; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT now(),
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT 1,
+	REIMB_TYPE_ID int NOT NULL ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42001-200]
+2021-12-10 13:52:36 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [42102-200]
+2021-12-10 13:52:36 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:52:36 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:52:36 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:52:36 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 13:52:36 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+DROP TABLE ers_user_roles; [42102-200]
+2021-12-10 13:52:36 ERROR ReimbUtil:211 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+DROP TABLE ers_users; [42102-200]
+2021-12-10 13:52:36 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 13:58:42 ERROR ReimbUtil:42 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID SERIAL PRIMARY KEY,
+	REIMB_AMOUNT DOUBLE PRECISION NOT NULL,
+	REIMB_SUBMITTED TIMESTAMP DEFAULT NOW(),
+	REIMB_RESOLVED TIMESTAMP,
+	REIMB_DESCRIPTION VARCHAR(250),
+	REIMB_RECEIPT BYTEA,
+	REIMB_AUTHOR INT NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER INT REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT[*] 1,
+	REIMB_TYPE_ID INT NOT NULL ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+);"; expected "INDEX, ON, NOT, DEFERRABLE, ,, )"; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT now(),
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT 1,
+	REIMB_TYPE_ID int NOT NULL ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42001-200]
+2021-12-10 13:58:42 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 13:58:42 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:58:42 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:58:42 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 13:58:42 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 13:58:42 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_USER_ROLES" because "CONSTRAINT_A287" depends on it; SQL statement:
+DROP TABLE ers_user_roles; [90107-200]
+2021-12-10 13:58:42 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 14:01:20 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" already exists; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:01:20 ERROR ReimbUtil:42 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID SERIAL PRIMARY KEY,
+	REIMB_AMOUNT DOUBLE PRECISION NOT NULL,
+	REIMB_SUBMITTED TIMESTAMP DEFAULT NOW(),
+	REIMB_RESOLVED TIMESTAMP,
+	REIMB_DESCRIPTION VARCHAR(250),
+	REIMB_RECEIPT BYTEA,
+	REIMB_AUTHOR INT NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER INT REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT[*] 1,
+	REIMB_TYPE_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+);"; expected "INDEX, ON, NOT, DEFERRABLE, ,, )"; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT now(),
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT 1,
+	REIMB_TYPE_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42001-200]
+2021-12-10 14:01:20 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 14:01:20 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:01:20 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:01:20 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:01:20 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 14:01:20 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_USER_ROLES" because "CONSTRAINT_A287" depends on it; SQL statement:
+DROP TABLE ers_user_roles; [90107-200]
+2021-12-10 14:01:20 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 14:03:35 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" already exists; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:03:35 ERROR ReimbUtil:42 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID SERIAL PRIMARY KEY,
+	REIMB_AMOUNT DOUBLE PRECISION NOT NULL,
+	REIMB_SUBMITTED TIMESTAMP DEFAULT NOW(),
+	REIMB_RESOLVED TIMESTAMP,
+	REIMB_DESCRIPTION VARCHAR(250),
+	REIMB_RECEIPT BYTEA ,
+	REIMB_AUTHOR INT NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER INT REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT[*] 1,
+	REIMB_TYPE_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+);"; expected "INDEX, ON, NOT, DEFERRABLE, ,, )"; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT now(),
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea ,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID) DEFAULT 1,
+	REIMB_TYPE_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42001-200]
+2021-12-10 14:03:35 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 14:03:35 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:03:35 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:03:35 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:03:35 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 14:03:35 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_USER_ROLES" because "CONSTRAINT_A287" depends on it; SQL statement:
+DROP TABLE ers_user_roles; [90107-200]
+2021-12-10 14:03:35 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 14:06:55 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" already exists; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:06:55 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 14:06:55 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:06:55 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:06:55 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:06:55 ERROR ReimbUtil:160 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_REIMBURSEMENT_STATUS" because "CONSTRAINT_94D4" depends on it; SQL statement:
+DROP TABLE ers_reimbursement_status; [90107-200]
+2021-12-10 14:06:55 ERROR ReimbUtil:177 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_REIMBURSEMENT_TYPE" because "CONSTRAINT_94D4F" depends on it; SQL statement:
+DROP TABLE ers_reimbursement_type; [90107-200]
+2021-12-10 14:06:55 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_USER_ROLES" because "CONSTRAINT_A287" depends on it; SQL statement:
+DROP TABLE ers_user_roles; [90107-200]
+2021-12-10 14:06:55 ERROR ReimbUtil:211 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_USERS" because "CONSTRAINT_94, CONSTRAINT_94D" depends on it; SQL statement:
+DROP TABLE ers_users; [90107-200]
+2021-12-10 14:09:01 ERROR ReimbUtil:81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_STATUS(
+	REIMB_STATUS_ID serial PRIMARY KEY,
+	REIMB_STATUS varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:09:01 ERROR ReimbUtil:62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_TYPE" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_TYPE(
+	REIMB_TYPE_ID serial PRIMARY KEY,
+	REIMB_TYPE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:09:01 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" already exists; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:09:01 ERROR ReimbUtil:126 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" already exists; SQL statement:
+CREATE TABLE ERS_USERS(
+	ERS_USERS_ID serial PRIMARY KEY,
+	ERS_USERNAME varchar(50) NOT NULL UNIQUE,
+	ERS_PASSWORD varchar(50) NOT NULL,
+	USER_FIRST_NAME varchar(100) NOT NULL,
+	USER_LAST_NAME varchar(100) NOT NULL,
+	USER_EMAIL varchar(150) NOT NULL UNIQUE,
+	USER_ROLE_ID int NOT NULL REFERENCES ERS_USER_ROLES(ERS_USER_ROLE_ID)
+); [42101-200]
+2021-12-10 14:09:01 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 14:09:01 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:09:01 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:09:01 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:10:06 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 14:10:06 ERROR ReimbUtil:211 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+DROP TABLE ers_users; [42102-200]
+2021-12-10 14:10:06 ERROR ReimbUtil:160 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" not found; SQL statement:
+DROP TABLE ers_reimbursement_status; [42102-200]
+2021-12-10 14:10:06 ERROR ReimbUtil:177 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_TYPE" not found; SQL statement:
+DROP TABLE ers_reimbursement_type; [42102-200]
+2021-12-10 14:10:06 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+DROP TABLE ers_user_roles; [42102-200]
+2021-12-10 14:10:06 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 14:10:06 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:10:06 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:10:06 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:10:55 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 14:10:55 ERROR ReimbUtil:211 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+DROP TABLE ers_users; [42102-200]
+2021-12-10 14:10:55 ERROR ReimbUtil:160 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" not found; SQL statement:
+DROP TABLE ers_reimbursement_status; [42102-200]
+2021-12-10 14:10:55 ERROR ReimbUtil:177 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_TYPE" not found; SQL statement:
+DROP TABLE ers_reimbursement_type; [42102-200]
+2021-12-10 14:10:55 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+DROP TABLE ers_user_roles; [42102-200]
+2021-12-10 14:10:55 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [42102-200]
+2021-12-10 14:10:55 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:10:55 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:10:55 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-10 14:10:55 ERROR ReimbDaoImpl:55 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-10 14:13:41 ERROR ReimbUtil:143 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-10 14:13:41 ERROR ReimbUtil:211 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" not found; SQL statement:
+DROP TABLE ers_users; [42102-200]
+2021-12-10 14:13:41 ERROR ReimbUtil:160 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" not found; SQL statement:
+DROP TABLE ers_reimbursement_status; [42102-200]
+2021-12-10 14:13:41 ERROR ReimbUtil:177 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_TYPE" not found; SQL statement:
+DROP TABLE ers_reimbursement_type; [42102-200]
+2021-12-10 14:13:41 ERROR ReimbUtil:194 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" not found; SQL statement:
+DROP TABLE ers_user_roles; [42102-200]
+2021-12-10 14:14:46 ERROR ReimbUtil:81 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_STATUS(
+	REIMB_STATUS_ID serial PRIMARY KEY,
+	REIMB_STATUS varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:14:46 ERROR ReimbUtil:62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_TYPE" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_TYPE(
+	REIMB_TYPE_ID serial PRIMARY KEY,
+	REIMB_TYPE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:14:46 ERROR ReimbUtil:101 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USER_ROLES" already exists; SQL statement:
+CREATE TABLE ERS_USER_ROLES(
+	ERS_USER_ROLE_ID serial PRIMARY KEY,
+	USER_ROLE varchar(10) NOT NULL
+); [42101-200]
+2021-12-10 14:14:46 ERROR ReimbUtil:126 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_USERS" already exists; SQL statement:
+CREATE TABLE ERS_USERS(
+	ERS_USERS_ID serial PRIMARY KEY,
+	ERS_USERNAME varchar(50) NOT NULL UNIQUE,
+	ERS_PASSWORD varchar(50) NOT NULL,
+	USER_FIRST_NAME varchar(100) NOT NULL,
+	USER_LAST_NAME varchar(100) NOT NULL,
+	USER_EMAIL varchar(150) NOT NULL UNIQUE,
+	USER_ROLE_ID int NOT NULL REFERENCES ERS_USER_ROLES(ERS_USER_ROLE_ID)
+); [42101-200]
+2021-12-10 14:14:46 ERROR ReimbUtil:42 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT now(),
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea ,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL DEFAULT 1 REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID),
+	REIMB_TYPE_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42101-200]
+2021-12-10 14:15:45 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-10 14:15:45 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:15:45 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:15:45 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_AUTHOR) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (1)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:33:25 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D4F: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_TYPE_ID) REFERENCES PUBLIC.ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID) (3)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:33:25 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D4F: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_TYPE_ID) REFERENCES PUBLIC.ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID) (3)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-10 14:33:25 ERROR ReimbDaoImpl:111 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D4F: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_TYPE_ID) REFERENCES PUBLIC.ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID) (3)"; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [23506-200]
+2021-12-12 16:13:59 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_A ON PUBLIC.ERS_USERS(ERS_USERNAME) VALUES 1"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
+2021-12-12 16:13:59 TRACE ReimbDaoImpl:137 - prep13: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-12 16:13:59 TRACE ReimbDaoImpl:137 - prep14: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-12 16:13:59 TRACE ReimbDaoImpl:137 - prep15: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-12 16:13:59 ERROR ReimbDaoImpl:164 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_RESOLVER) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (2)"; SQL statement:
+UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; [23506-200]
+2021-12-12 16:13:59 TRACE ReimbDaoImpl:109 - rs0: org.h2.result.LocalResultImpl@2df9b86 columns: 10 rows: 1 pos: 1
+2021-12-12 16:15:37 TRACE ReimbDaoImpl:137 - prep9: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-12 16:15:37 TRACE ReimbDaoImpl:137 - prep10: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-12 16:15:37 TRACE ReimbDaoImpl:137 - prep11: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-12 16:15:37 TRACE ReimbDaoImpl:54 - rs0: org.h2.result.LocalResultImpl@79da8dc5 columns: 10 rows: 3 pos: 3
+2021-12-12 16:18:35 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_A ON PUBLIC.ERS_USERS(ERS_USERNAME) VALUES 1"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
+2021-12-12 16:18:35 ERROR ReimbDaoImpl:164 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_RESOLVER) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (2)"; SQL statement:
+UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; [23506-200]
+2021-12-12 16:19:13 ERROR UserDaoImpl:78 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_A2 ON PUBLIC.ERS_USERS(USER_EMAIL) VALUES 1"; SQL statement:
+INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
+2021-12-12 16:19:13 ERROR ReimbDaoImpl:164 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_RESOLVER) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (2)"; SQL statement:
+UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; [23506-200]
+2021-12-12 18:54:54 ERROR UserDaoImpl:53 - org.h2.jdbc.JdbcSQLNonTransientException: Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM ers_users WHERE ers_username = ?; [90001-200]
+2021-12-12 18:56:24 ERROR UserDaoImpl:53 - org.h2.jdbc.JdbcSQLNonTransientException: Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM ers_users WHERE ers_username = ?; [90001-200]
+2021-12-12 20:54:31 TRACE ReimbDaoImpl:214 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 2, reimb_resolved = now() WHERE reimb_id = 5
+2021-12-13 08:36:22 ERROR ReimbUtil:41 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID SERIAL PRIMARY KEY,
+	REIMB_AMOUNT DOUBLE PRECISION NOT NULL,
+	REIMB_SUBMITTED TIMESTAMP DEFAULT 2021-12-10 14[*]:35:44.865,
+	REIMB_RESOLVED TIMESTAMP,
+	REIMB_DESCRIPTION VARCHAR(250),
+	REIMB_RECEIPT BYTEA ,
+	REIMB_AUTHOR INT NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER INT REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID INT NOT NULL DEFAULT 1 REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID),
+	REIMB_TYPE_ID INT NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+);"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT(
+	REIMB_ID serial PRIMARY KEY,
+	REIMB_AMOUNT double PRECISION NOT NULL,
+	REIMB_SUBMITTED timestamp DEFAULT 2021-12-10 14:35:44.865,
+	REIMB_RESOLVED timestamp,
+	REIMB_DESCRIPTION varchar(250),
+	REIMB_RECEIPT bytea ,
+	REIMB_AUTHOR int NOT NULL REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_RESOLVER int REFERENCES ERS_USERS(ERS_USERS_ID),
+	REIMB_STATUS_ID int NOT NULL DEFAULT 1 REFERENCES ERS_REIMBURSEMENT_STATUS(REIMB_STATUS_ID),
+	REIMB_TYPE_ID int NOT NULL REFERENCES ERS_REIMBURSEMENT_TYPE(REIMB_TYPE_ID)
+); [42001-200]
+2021-12-13 08:36:22 ERROR ReimbDaoImpl:142 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-13 08:36:22 ERROR ReimbDaoImpl:142 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-13 08:36:22 ERROR ReimbDaoImpl:142 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); [42102-200]
+2021-12-13 08:36:22 ERROR ReimbDaoImpl:58 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+SELECT * FROM ers_reimbursement; [42102-200]
+2021-12-13 08:36:22 ERROR ReimbUtil:142 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT" not found; SQL statement:
+DROP TABLE ers_reimbursement; [42102-200]
+2021-12-13 08:59:09 ERROR ReimbDaoImpl:65 - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+2021-12-13 08:59:19 ERROR ReimbDaoImpl:65 - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+2021-12-13 09:00:56 ERROR ReimbDaoImpl:66 - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+2021-12-15 11:53:19 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@11dd74bd
+2021-12-15 11:53:19 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@72180c1b
+2021-12-15 11:54:18 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3fdbc425
+2021-12-15 11:54:19 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@3e682551
+2021-12-15 11:56:07 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@25457d4e
+2021-12-15 11:56:08 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@1c2cd28b
+2021-12-15 11:57:00 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@37b4c57c
+2021-12-15 11:57:01 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@75301c59
+2021-12-15 11:57:02 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6bf3cb03
+2021-12-15 11:57:04 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1bce8b77
+2021-12-15 11:57:04 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@76c46ad1
+2021-12-15 11:57:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@75d592e7
+2021-12-15 11:57:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@19c0f6b5
+2021-12-15 11:57:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6233af8c
+2021-12-15 11:57:13 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6c1e9d5d
+2021-12-15 11:57:14 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@76f6c68a
+2021-12-15 11:57:15 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@30b28191
+2021-12-15 11:57:16 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@29b6aeba
+2021-12-15 11:57:18 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4232143d
+2021-12-15 12:02:38 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7d0192e0
+2021-12-15 12:03:36 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@6ff970f9
+2021-12-15 12:03:37 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@f78f0a9
+2021-12-15 12:05:18 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@687aec7c
+2021-12-15 12:05:18 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e6a257c
+2021-12-15 12:05:24 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6bf3cb03
+2021-12-15 12:05:25 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@639e33fc
+2021-12-15 12:05:26 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@76c46ad1
+2021-12-15 12:05:27 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6eb92240
+2021-12-15 12:05:27 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@9000c43
+2021-12-15 12:05:28 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@31a7aba6
+2021-12-15 12:05:28 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@251e5aa1
+2021-12-15 12:07:53 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@74c27420
+2021-12-15 12:07:53 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e980701
+2021-12-15 12:07:59 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6233af8c
+2021-12-15 12:08:00 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2b6cfed
+2021-12-15 12:08:00 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2fed3019
+2021-12-15 12:08:01 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@e040fc1
+2021-12-15 12:08:01 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@416752fb
+2021-12-15 12:08:01 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@342c4540
+2021-12-15 12:08:02 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@38d126ef
+2021-12-15 12:08:02 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@38198e91
+2021-12-15 12:08:02 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7a139079
+2021-12-15 12:08:02 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1253d7ae
+2021-12-15 12:08:03 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3fc0e2da
+2021-12-15 12:08:03 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@654cbb29
+2021-12-15 12:08:03 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5b81f6a1
+2021-12-15 12:08:51 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4f9b74ef
+2021-12-15 12:08:56 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7e47e879
+2021-12-15 12:08:56 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@67a968b2
+2021-12-15 12:08:57 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@711d0a61
+2021-12-15 12:08:58 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@74a15078
+2021-12-15 12:09:07 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@e40db26
+2021-12-15 12:09:09 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@638c323d
+2021-12-15 12:10:36 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3fdbc425
+2021-12-15 12:10:37 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e40e178
+2021-12-15 12:10:39 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@15fd2b79
+2021-12-15 12:10:39 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@79be07bd
+2021-12-15 12:10:42 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@42fc3145
+2021-12-15 12:10:43 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@10bc1dc8
+2021-12-15 12:10:44 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5f6783aa
+2021-12-15 12:10:44 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@531fb575
+2021-12-15 12:10:46 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@502cea32
+2021-12-15 12:10:47 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@8ffe7ba
+2021-12-15 12:27:05 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@40acd234
+2021-12-15 12:27:05 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5a173d8
+2021-12-15 12:27:20 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1b8e885
+2021-12-15 12:27:21 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4061c20e
+2021-12-15 12:28:01 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@25457d4e
+2021-12-15 12:28:02 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@502cea32
+2021-12-15 12:28:14 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4bfbc85d
+2021-12-15 12:28:14 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@327d3e2b
+2021-12-15 12:28:16 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7e90e7c
+2021-12-15 12:28:17 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@47d78ff8
+2021-12-15 12:28:19 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7c359593
+2021-12-15 12:28:19 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@754ff89f
+2021-12-15 12:28:27 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@282f53e5
+2021-12-15 12:28:27 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7b660c9e
+2021-12-15 12:28:33 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@e9c0181
+2021-12-15 12:28:33 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 12:28:37 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 12:28:37 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5807ec70
+2021-12-15 12:28:39 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 12:28:39 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5571399
+2021-12-15 12:29:03 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@75301c59
+2021-12-15 12:29:03 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 12:29:57 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@445e4e5d
+2021-12-15 12:38:43 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3fdbc425
+2021-12-15 12:38:44 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@28b27465
+2021-12-15 12:41:18 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@25457d4e
+2021-12-15 12:41:18 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@88891dd
+2021-12-15 12:42:24 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@25457d4e
+2021-12-15 12:42:24 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@88891dd
+2021-12-15 12:46:20 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3fdbc425
+2021-12-15 12:46:20 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@241158f9
+2021-12-15 12:53:01 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3cc9edea
+2021-12-15 12:53:02 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@76c46ad1
+2021-12-15 12:53:04 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5ef2c0b2
+2021-12-15 12:53:05 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@49d3187c
+2021-12-15 12:53:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5807ec70
+2021-12-15 13:01:05 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3fdbc425
+2021-12-15 13:01:06 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@70747ddb
+2021-12-15 13:01:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@55e7ddab
+2021-12-15 13:01:12 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@17c5cccc
+2021-12-15 13:01:16 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@190a0815
+2021-12-15 13:01:16 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@23e3ab7a
+2021-12-15 13:02:29 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2b1c50fd
+2021-12-15 13:02:49 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5015f446
+2021-12-15 13:03:05 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@73af227
+2021-12-15 13:03:06 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3ea2c8bf
+2021-12-15 13:03:07 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3ca6da75
+2021-12-15 13:03:07 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@52308e47
+2021-12-15 13:03:10 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6a22a1f2
+2021-12-15 13:03:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@692fdae0
+2021-12-15 13:04:41 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@361519fc
+2021-12-15 13:06:30 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6294dc59
+2021-12-15 13:08:41 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3cc9edea
+2021-12-15 13:08:41 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e6a257c
+2021-12-15 13:08:43 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6bf3cb03
+2021-12-15 13:08:43 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@639e33fc
+2021-12-15 13:08:46 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@76c46ad1
+2021-12-15 13:08:46 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6eb92240
+2021-12-15 13:08:50 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 6
+2021-12-15 13:09:07 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 6
+2021-12-15 13:09:08 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 6
+2021-12-15 13:11:39 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3cc9edea
+2021-12-15 13:11:40 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e6a257c
+2021-12-15 13:11:47 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6bf3cb03
+2021-12-15 13:11:48 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@639e33fc
+2021-12-15 13:11:52 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 1
+2021-12-15 13:11:57 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 1
+2021-12-15 13:11:57 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 1
+2021-12-15 13:14:36 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3cc9edea
+2021-12-15 13:15:11 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3fd59606
+2021-12-15 13:15:12 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e40e178
+2021-12-15 13:15:21 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@610222cc
+2021-12-15 13:15:22 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@79be07bd
+2021-12-15 13:15:24 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 13:15:25 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 13:15:25 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 13:15:31 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7c66a414
+2021-12-15 13:18:21 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@11dd74bd
+2021-12-15 13:18:21 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1c91f311
+2021-12-15 13:18:24 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@610222cc
+2021-12-15 13:18:25 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7f9e4882
+2021-12-15 13:18:26 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 1
+2021-12-15 13:18:26 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1e268279
+2021-12-15 13:18:26 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@18808fa5
+2021-12-15 13:18:33 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1a123efb
+2021-12-15 13:18:34 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@32dcec1f
+2021-12-15 13:18:35 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 2
+2021-12-15 13:18:35 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1f88fa3a
+2021-12-15 13:18:35 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@271f62d0
+2021-12-15 13:18:51 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1b213d47
+2021-12-15 13:18:52 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@662268eb
+2021-12-15 13:20:27 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3cc9edea
+2021-12-15 13:20:27 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e6a257c
+2021-12-15 13:20:29 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6bf3cb03
+2021-12-15 13:20:29 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@639e33fc
+2021-12-15 13:20:30 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-15 13:20:31 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6c1e9d5d
+2021-12-15 13:20:44 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5d0e47c4
+2021-12-15 13:20:45 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2e59bc6c
+2021-12-15 13:20:46 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 2
+2021-12-15 13:20:47 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5b10f9cf
+2021-12-15 13:21:05 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@36b5388f
+2021-12-15 13:21:06 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@ee2aa54
+2021-12-15 13:21:08 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 1
+2021-12-15 13:21:08 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6407d7a7
+2021-12-15 13:24:43 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@25457d4e
+2021-12-15 13:24:44 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@256386b6
+2021-12-15 13:24:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@15fd2b79
+2021-12-15 13:24:51 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@32aa3ffb
+2021-12-15 13:24:54 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 1
+2021-12-15 13:24:54 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2c76a5ad
+2021-12-15 13:25:02 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2040aaaa
+2021-12-15 13:25:03 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5b706d3d
+2021-12-15 13:25:04 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 4, reimb_resolved = now() WHERE reimb_id = 2
+2021-12-15 13:25:05 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3275b165
+2021-12-15 13:25:41 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@389d4202
+2021-12-15 13:25:42 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@537b872d
+2021-12-15 19:19:41 TRACE UserDaoImpl:83 - INSERT INTO ers_users VALUES(DEFAULT, 'test', 'elXGUP2Csk86+6EcqmrYbd1roRoOTmLF', 'tester', 'Mgee', '@test', 1)
+2021-12-15 19:20:16 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1e29cc7
+2021-12-15 19:20:17 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@42e5cb63
+2021-12-15 19:21:08 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 1000.12, DEFAULT, NULL, 'Testing Reimbursement ', NULL, 5, NULL, DEFAULT, 4)
+2021-12-15 19:21:08 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@15f088f3
+2021-12-15 19:50:01 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3b42f44a
+2021-12-15 19:50:16 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@20487d8b
+2021-12-15 19:50:17 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@595f69d5
+2021-12-15 20:05:33 TRACE UserDaoImpl:83 - INSERT INTO ers_users VALUES(DEFAULT, 'admintest', 'grIT0HDkDLfX+ezHLT45UqO06DIzdRBO', 'tester', 'Mgee', '@admintest', 2)
+2021-12-16 12:50:10 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@45173cf
+2021-12-16 12:50:11 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2c76a5ad
+2021-12-16 12:50:24 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4133a454
+2021-12-16 12:50:25 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@f6c2242
+2021-12-16 12:50:28 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6a215ac6
+2021-12-16 12:50:28 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@9dc60da
+2021-12-16 12:50:31 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1253d7ae
+2021-12-16 12:50:31 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6d1701fc
+2021-12-16 12:50:36 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5b81f6a1
+2021-12-16 12:50:36 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@40957d0e
+2021-12-16 12:50:39 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@a0ea589
+2021-12-16 12:50:39 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4500c91a
+2021-12-16 12:50:43 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@66cedc1
+2021-12-16 12:50:43 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5246d5
+2021-12-16 14:23:53 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@48eaec5d
+2021-12-16 14:23:53 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@3967f265
+2021-12-16 14:25:07 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@692acfb4
+2021-12-16 14:25:07 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6a4adecc
+2021-12-16 14:25:30 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@40acd234
+2021-12-16 14:25:31 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@78c8f174
+2021-12-16 14:26:04 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@56e2bfe1
+2021-12-16 14:26:04 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@1f7760a5
+2021-12-16 14:34:03 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@5064d714
+2021-12-16 14:34:04 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@566026cd
+2021-12-16 14:37:01 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@17b59a71
+2021-12-16 14:37:28 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@8a88530
+2021-12-16 14:37:28 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@632f1459
+2021-12-16 14:42:52 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@24df947d
+2021-12-16 14:44:37 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@59d0ab3e
+2021-12-16 14:44:38 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6ce9325e
+2021-12-16 14:46:14 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@61c3c9e8
+2021-12-16 14:46:14 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@4c367449
+2021-12-16 14:46:54 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@43e78b89
+2021-12-16 14:50:03 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1094148b
+2021-12-16 14:51:09 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1c7a5e3
+2021-12-16 14:51:55 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@2c06ad9f
+2021-12-16 14:52:40 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1c7a5e3
+2021-12-16 14:52:40 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6c226a58
+2021-12-16 14:53:00 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 156.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-16 14:53:00 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@425df57d
+2021-12-16 14:54:55 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3e2ba855
+2021-12-16 14:54:55 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6c226a58
+2021-12-16 14:55:06 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-16 14:58:57 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3e2ba855
+2021-12-16 14:58:58 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@1a075429
+2021-12-16 14:59:10 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 1234.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-16 15:00:12 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3e2ba855
+2021-12-16 15:00:13 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@57799fde
+2021-12-16 15:00:23 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 2312.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-16 15:00:23 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5e8be34b
+2021-12-16 15:05:15 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1c7a5e3
+2021-12-16 15:05:16 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@27725e5
+2021-12-16 15:05:26 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-16 15:10:26 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1c7a5e3
+2021-12-16 15:10:26 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@7bcd0f79
+2021-12-16 15:10:40 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 1234.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-16 15:12:53 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@720875bd
+2021-12-16 15:12:54 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@57799fde
+2021-12-16 15:13:03 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 2)
+2021-12-16 15:13:03 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@18808fa5
+2021-12-16 15:13:06 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7e180e9
+2021-12-16 15:15:08 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@2eceb8eb
+2021-12-16 15:17:14 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@806e14b
+2021-12-16 15:23:41 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@45adc8f2
+2021-12-16 15:23:41 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@1148d47a
+2021-12-16 15:26:56 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@50db7bf7
+2021-12-16 15:26:56 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@13db3564
+2021-12-16 15:30:43 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3d7d7dda
+2021-12-16 15:30:44 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@59952b49
+2021-12-16 15:32:04 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4d6a5eba
+2021-12-16 15:32:04 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@7d7b30d2
+2021-12-16 15:36:16 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@20be3060
+2021-12-16 15:36:17 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@42c6962e
+2021-12-16 15:37:25 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@27d5a6c9
+2021-12-16 15:37:26 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@3a0ae0ec
+2021-12-16 16:07:32 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3b5d425b
+2021-12-16 16:07:32 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@170a7bea
+2021-12-16 16:14:31 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@36f70f10
+2021-12-16 16:14:31 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@eb4ce43
+2021-12-16 16:15:19 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@210e49e9
+2021-12-16 16:18:25 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@21666aac
+2021-12-16 16:18:58 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@56e2777c
+2021-12-16 16:18:58 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@57ccb93c
+2021-12-16 16:27:00 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@a85baca
+2021-12-16 16:27:00 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@56e48ab4
+2021-12-17 07:15:45 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@69a2a301
+2021-12-17 07:15:46 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@7be7a7cd
+2021-12-17 07:23:55 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@1c7a5e3
+2021-12-17 07:24:11 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7bb65e40
+2021-12-17 10:48:33 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@6a42a5cf
+2021-12-17 10:49:15 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@54caab36
+2021-12-17 10:50:27 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@f8c483d
+2021-12-17 10:53:15 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7f0e5287
+2021-12-17 10:53:16 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@4020425d
+2021-12-17 10:53:33 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@462c914c
+2021-12-17 10:54:38 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@66682249
+2021-12-17 10:54:38 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6c0e0a56
+2021-12-17 10:54:43 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5299fa2e
+2021-12-17 10:54:44 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@c96292f
+2021-12-17 10:54:47 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@342f551e
+2021-12-17 10:54:47 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1b0527ad
+2021-12-17 10:54:53 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2a0bb464
+2021-12-17 10:54:55 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1eb5f9b2
+2021-12-17 10:54:55 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@35a28de7
+2021-12-17 10:54:57 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2cbf9d86
+2021-12-17 10:54:57 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3369b160
+2021-12-17 10:56:50 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@2960bd7
+2021-12-17 10:56:50 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@813b180
+2021-12-17 12:02:39 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@294d6cc
+2021-12-17 12:02:39 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@14832df6
+2021-12-17 12:06:17 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@6aeed88
+2021-12-17 12:06:17 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2722cd08
+2021-12-17 12:06:18 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.5, DEFAULT, NULL, 'Selenium Reimbursement', NULL, 5, NULL, DEFAULT, 1)
+2021-12-17 12:06:18 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2be6dc0c
+2021-12-17 14:00:51 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@5708326d
+2021-12-17 14:00:51 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5c3ff64
+2021-12-17 14:00:52 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.5, DEFAULT, NULL, 'Selenium Reimbursement', NULL, 5, NULL, DEFAULT, 1)
+2021-12-17 14:00:52 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@4d92d90f
+2021-12-18 13:47:06 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7db8cfd7
+2021-12-18 13:47:06 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@36db5006
+2021-12-18 13:47:12 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@58198e29
+2021-12-18 13:48:12 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2378da02
+2021-12-18 13:48:13 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1516c415
+2021-12-18 13:48:15 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 3
+2021-12-18 13:48:15 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@e9d3b13
+2021-12-18 13:48:44 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@64ae71f0
+2021-12-18 13:48:45 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@f753b0c
+2021-12-18 13:48:47 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3fabfbb
+2021-12-18 13:50:28 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3872a94f
+2021-12-18 13:52:58 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@5dc5bdf1
+2021-12-18 13:52:59 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3b34891a
+2021-12-18 13:55:10 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@66682249
+2021-12-18 13:55:11 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6c0e0a56
+2021-12-18 13:55:14 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@f6c2242
+2021-12-18 13:55:16 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@c96292f
+2021-12-18 13:56:07 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@2f520922
+2021-12-18 13:56:08 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@630d58a5
+2021-12-18 13:57:05 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@66682249
+2021-12-18 13:57:06 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@b4dfa2c
+2021-12-18 13:57:11 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6c34f6eb
+2021-12-18 13:57:13 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@33cf9795
+2021-12-18 13:57:14 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@42f4f2e5
+2021-12-18 13:58:04 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1cbf18ea
+2021-12-18 13:58:09 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@697983a8
+2021-12-18 13:58:20 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2b6cfed
+2021-12-18 13:59:36 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3872a94f
+2021-12-18 13:59:37 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7f119c88
+2021-12-18 13:59:45 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@14014d88
+2021-12-18 13:59:47 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@17bf9b47
+2021-12-18 13:59:48 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2f62c9e9
+2021-12-18 14:01:30 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@500eeb0b
+2021-12-18 14:01:30 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@35cff14a
+2021-12-18 14:01:35 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@357d5fda
+2021-12-18 14:01:37 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@293bad6b
+2021-12-18 14:01:38 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@790da58d
+2021-12-18 14:05:50 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7db8cfd7
+2021-12-18 14:05:51 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7da2a973
+2021-12-18 14:05:57 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3fafac85
+2021-12-18 14:06:00 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7ca93efa
+2021-12-18 14:06:04 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7fd0fdbd
+2021-12-18 14:06:06 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4ddff415
+2021-12-18 14:06:08 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@440fdf95
+2021-12-18 14:06:09 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@58b9a306
+2021-12-18 14:06:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@66594cae
+2021-12-18 14:06:12 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 7
+2021-12-18 14:06:12 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5afa730f
+2021-12-18 14:06:24 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2e69e92e
+2021-12-18 14:06:27 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@30355629
+2021-12-18 14:06:29 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@212317c0
+2021-12-18 14:08:46 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@500eeb0b
+2021-12-18 14:08:47 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@35cff14a
+2021-12-18 14:08:49 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@74980fdd
+2021-12-18 14:08:53 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1ab0990f
+2021-12-18 14:08:53 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2ed0d6da
+2021-12-18 14:08:55 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 9
+2021-12-18 14:08:55 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@b70dd74
+2021-12-18 14:10:25 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@66682249
+2021-12-18 14:10:25 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4ffa5d9
+2021-12-18 14:10:28 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5f91d380
+2021-12-18 14:10:29 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@51f5c01d
+2021-12-18 14:10:29 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1b0527ad
+2021-12-18 14:10:36 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 8
+2021-12-18 14:10:37 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5ce967ae
+2021-12-18 14:10:41 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 8
+2021-12-18 14:10:41 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@184afe14
+2021-12-18 14:10:52 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2cbf9d86
+2021-12-18 14:12:36 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4061c20e
+2021-12-18 14:12:37 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@8091bf8
+2021-12-18 14:12:38 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 10
+2021-12-18 14:12:38 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2135473c
+2021-12-18 14:12:48 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5e104873
+2021-12-18 14:12:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@446b5793
+2021-12-18 14:12:51 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4b46163a
+2021-12-18 14:12:52 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 11
+2021-12-18 14:12:53 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3e8aa490
+2021-12-18 14:13:22 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7e88e9f6
+2021-12-18 14:13:23 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5ca639c2
+2021-12-18 14:13:26 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@f91aa14
+2021-12-18 14:13:26 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3947f6d4
+2021-12-18 14:13:29 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3318a8ba
+2021-12-18 14:13:30 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3152c2d0
+2021-12-18 14:13:30 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@34ff187c
+2021-12-18 14:13:32 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 12
+2021-12-18 14:13:32 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@94c9078
+2021-12-18 14:13:36 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1ecfb5cb
+2021-12-18 14:13:40 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@f3b26d3
+2021-12-18 14:19:27 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@66682249
+2021-12-18 14:19:27 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6c0e0a56
+2021-12-18 14:21:47 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4da33c9f
+2021-12-18 14:21:48 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4ffa5d9
+2021-12-18 14:22:00 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@74980fdd
+2021-12-18 14:22:02 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@68189fe7
+2021-12-18 14:22:04 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3ad40d7e
+2021-12-18 14:22:11 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5128fdc8
+2021-12-18 14:23:13 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@9ad0b90
+2021-12-18 14:24:31 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4da33c9f
+2021-12-18 14:24:32 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6c226a58
+2021-12-18 14:25:08 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5d8212d1
+2021-12-18 14:27:09 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4da33c9f
+2021-12-18 14:27:13 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@2d06cc5a
+2021-12-18 14:27:13 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@11eeb639
+2021-12-18 14:27:20 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@4038c8d5
+2021-12-18 14:27:27 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@66179176
+2021-12-18 14:29:25 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3872a94f
+2021-12-18 14:29:26 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2acb5895
+2021-12-18 14:30:56 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3872a94f
+2021-12-18 14:30:57 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@10d7e909
+2021-12-18 14:31:03 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@f093cfb
+2021-12-18 14:31:03 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2f23c146
+2021-12-18 14:36:24 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@72b72f9
+2021-12-18 14:36:24 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4e009627
+2021-12-18 14:36:36 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5e787053
+2021-12-18 14:36:36 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7a139079
+2021-12-18 18:54:54 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@532519d5
+2021-12-18 18:54:54 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@15abd61a
+2021-12-18 18:55:19 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@73fd819
+2021-12-18 18:55:21 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6e4c3c87
+2021-12-18 18:55:23 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7f318820
+2021-12-18 18:55:24 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@45034ebc
+2021-12-18 18:55:37 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@416f277f
+2021-12-18 18:55:38 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6233af8c
+2021-12-18 18:56:23 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2f770ffa
+2021-12-18 18:56:23 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 156.0, DEFAULT, NULL, 'I''m Hungry', NULL, 5, NULL, DEFAULT, 3)
+2021-12-18 18:56:26 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3c73656d
+2021-12-18 18:56:26 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@73a079ce
+2021-12-18 18:56:31 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7971ec87
+2021-12-18 18:56:33 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@cd17679
+2021-12-18 18:56:33 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5294a57c
+2021-12-18 18:56:42 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@75cfe20d
+2021-12-18 18:56:42 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1764fe52
+2021-12-18 18:56:51 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7c22b762
+2021-12-18 18:57:19 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@312fb0f
+2021-12-18 18:57:19 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 5555.0, DEFAULT, NULL, 'I am hungry', NULL, 5, NULL, DEFAULT, 3)
+2021-12-18 18:57:25 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@4c71b81f
+2021-12-18 18:57:27 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2978f8df
+2021-12-18 18:57:32 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@33c131d2
+2021-12-18 18:59:20 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 55.01, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 1)
+2021-12-18 18:59:20 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@74980fdd
+2021-12-18 18:59:39 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 94898.0, DEFAULT, NULL, 'I''m Hungry', NULL, 5, NULL, DEFAULT, 2)
+2021-12-18 18:59:39 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2c317f34
+2021-12-18 18:59:44 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@772813c7
+2021-12-18 18:59:45 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1302cf40
+2021-12-18 18:59:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@58518be4
+2021-12-18 18:59:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@434c4392
+2021-12-18 19:00:03 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@265beb85
+2021-12-18 19:00:04 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4504770f
+2021-12-18 19:00:10 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4695a3eb
+2021-12-18 19:00:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5e2410b9
+2021-12-19 11:18:53 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@5fe4ba0
+2021-12-19 11:18:53 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@d93614d
+2021-12-19 11:19:01 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2b6cfed
+2021-12-19 11:19:03 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2ea94715
+2021-12-19 11:19:04 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@342c4540
+2021-12-19 11:19:06 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@16a43aa1
+2021-12-19 11:19:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5131c9ca
+2021-12-19 11:19:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@51dac5e2
+2021-12-19 11:19:31 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@61175834
+2021-12-19 11:19:31 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@520c3753
+2021-12-19 11:19:34 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 16
+2021-12-19 11:19:34 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3ea2c8bf
+2021-12-19 11:19:35 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 16
+2021-12-19 11:19:35 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6e42d93f
+2021-12-19 11:19:39 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@566026cd
+2021-12-19 11:19:40 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4a923d07
+2021-12-19 11:19:41 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2be6dc0c
+2021-12-19 11:19:49 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@6bb55732
+2021-12-19 11:19:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1af2a6c2
+2021-12-19 11:19:51 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@c04fae7
+2021-12-19 11:19:53 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 13
+2021-12-19 11:19:54 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@15fd2b79
+2021-12-19 11:19:58 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@11beff37
+2021-12-19 11:20:00 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@42fc3145
+2021-12-19 11:20:00 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@79ec9406
+2021-12-19 11:20:10 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@329c521a
+2021-12-19 11:20:10 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@7d6e7290
+2021-12-19 11:20:36 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 879.04, DEFAULT, NULL, 'This is a presentation', NULL, 5, NULL, DEFAULT, 3)
+2021-12-19 11:20:36 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@67e89c65
+2021-12-19 11:20:40 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3feefa72
+2021-12-19 11:20:41 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4fb0931c
+2021-12-19 11:20:45 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@a0116d4
+2021-12-19 11:21:01 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@67999491
+2021-12-19 11:21:01 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@706f8dc5
+2021-12-19 11:21:10 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@151cf88a
+2021-12-19 11:21:46 TRACE UserDaoImpl:83 - prep8: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:46 TRACE ReimbDaoImpl:140 - prep9: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:46 TRACE ReimbDaoImpl:140 - prep10: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:47 TRACE ReimbDaoImpl:140 - prep11: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:47 TRACE ReimbDaoImpl:84 - rs0: org.h2.result.LocalResultImpl@503d687a columns: 10 rows: 3 pos: 3
+2021-12-19 11:21:47 TRACE UserDaoImpl:83 - prep26: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:47 TRACE ReimbDaoImpl:140 - prep27: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:47 TRACE ReimbDaoImpl:140 - prep28: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:47 TRACE ReimbDaoImpl:140 - prep29: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:48 TRACE ReimbDaoImpl:57 - rs1: org.h2.result.LocalResultImpl@43dac38f columns: 10 rows: 3 pos: 3
+2021-12-19 11:21:48 TRACE UserDaoImpl:83 - prep44: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:48 TRACE ReimbDaoImpl:140 - prep45: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:48 TRACE ReimbDaoImpl:140 - prep46: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:48 TRACE ReimbDaoImpl:140 - prep47: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:48 TRACE ReimbDaoImpl:57 - rs2: org.h2.result.LocalResultImpl@11392934 columns: 10 rows: 3 pos: 3
+2021-12-19 11:21:49 TRACE UserDaoImpl:83 - prep62: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:140 - prep63: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:140 - prep64: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:140 - prep65: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:84 - rs3: org.h2.result.LocalResultImpl@25be7b63 columns: 10 rows: 3 pos: 3
+2021-12-19 11:21:49 TRACE UserDaoImpl:83 - prep83: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:49 TRACE UserDaoImpl:83 - prep84: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:140 - prep85: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:140 - prep86: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:49 TRACE ReimbDaoImpl:140 - prep87: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:163 - prep88: UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:112 - rs4: org.h2.result.LocalResultImpl@54e041a4 columns: 10 rows: 1 pos: 1
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:112 - rs5: org.h2.result.LocalResultImpl@62656be4 columns: 10 rows: 1 pos: 1
+2021-12-19 11:21:50 TRACE UserDaoImpl:83 - prep104: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:140 - prep105: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:140 - prep106: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:140 - prep107: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:50 TRACE ReimbDaoImpl:84 - rs6: org.h2.result.LocalResultImpl@4c012563 columns: 10 rows: 3 pos: 3
+2021-12-19 11:21:51 TRACE UserDaoImpl:83 - prep125: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:51 TRACE UserDaoImpl:83 - prep126: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-19 11:21:51 TRACE ReimbDaoImpl:140 - prep127: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:51 TRACE ReimbDaoImpl:140 - prep128: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:51 TRACE ReimbDaoImpl:140 - prep129: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 11:21:51 TRACE ReimbDaoImpl:186 - prep130: UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-19 11:21:51 TRACE ReimbDaoImpl:112 - rs7: org.h2.result.LocalResultImpl@14f9390f columns: 10 rows: 1 pos: 1
+2021-12-19 11:21:51 TRACE ReimbDaoImpl:112 - rs8: org.h2.result.LocalResultImpl@7aaca91a columns: 10 rows: 1 pos: 1
+2021-12-19 11:21:58 TRACE UserDaoImpl:83 - prep6: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:59 TRACE UserDaoImpl:56 - rs0: org.h2.result.LocalResultImpl@dd0c991 columns: 7 rows: 1 pos: 1
+2021-12-19 11:21:59 TRACE UserDaoImpl:83 - prep19: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:21:59 TRACE UserDaoImpl:56 - rs1: org.h2.result.LocalResultImpl@33990a0c columns: 7 rows: 1 pos: 1
+2021-12-19 11:22:40 TRACE UserDaoImpl:83 - prep6: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 11:22:40 TRACE UserDaoImpl:56 - rs0: org.h2.result.LocalResultImpl@609db43b columns: 7 rows: 1 pos: 1
+2021-12-19 22:15:40 TRACE UserDaoImpl:83 - prep6: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:15:40 TRACE UserDaoImpl:56 - rs0: org.h2.result.LocalResultImpl@609db43b columns: 7 rows: 1 pos: 1
+2021-12-19 22:18:24 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3a1794fe
+2021-12-19 22:18:24 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@1706be16
+2021-12-19 22:18:25 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.5, DEFAULT, NULL, 'Selenium Reimbursement', NULL, 5, NULL, DEFAULT, 1)
+2021-12-19 22:18:25 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@8091bf8
+2021-12-19 22:18:46 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@520c3753
+2021-12-19 22:18:47 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5c23733f
+2021-12-19 22:19:19 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4f83ebb7
+2021-12-19 22:19:20 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@1b978874
+2021-12-19 22:19:39 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 9873.0, DEFAULT, NULL, 'Florida Vacation', NULL, 5, NULL, DEFAULT, 2)
+2021-12-19 22:19:39 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@7c9ff1e7
+2021-12-19 22:19:41 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@37925d28
+2021-12-19 22:19:42 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3dcb0b74
+2021-12-19 22:20:01 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@58b9a306
+2021-12-19 22:20:01 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@54a80160
+2021-12-19 22:20:09 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@6c3a77f2
+2021-12-19 22:20:10 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1810a7e5
+2021-12-19 22:20:21 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@735bf7a9
+2021-12-19 22:20:25 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@559f4295
+2021-12-19 22:20:26 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5b706d3d
+2021-12-19 22:20:30 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 24
+2021-12-19 22:20:30 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@33c83cbe
+2021-12-19 22:20:37 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@537b872d
+2021-12-19 22:20:39 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@a6659d9
+2021-12-19 22:20:40 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6cc1ff57
+2021-12-19 22:20:48 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@656a3766
+2021-12-19 22:20:48 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1c8e44b4
+2021-12-19 22:20:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2b6cfed
+2021-12-19 22:20:54 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1249a955
+2021-12-19 22:20:56 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@342c4540
+2021-12-19 22:20:56 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@16762fc4
+2021-12-19 22:21:00 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 23
+2021-12-19 22:21:01 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7a139079
+2021-12-19 22:21:05 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5374a36e
+2021-12-19 22:21:07 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@654cbb29
+2021-12-19 22:21:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5afa730f
+2021-12-19 22:21:19 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@3d31e650
+2021-12-19 22:22:19 TRACE UserDaoImpl:83 - prep8: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:19 TRACE ReimbDaoImpl:140 - prep9: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:19 TRACE ReimbDaoImpl:140 - prep10: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:19 TRACE ReimbDaoImpl:140 - prep11: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:20 TRACE ReimbDaoImpl:84 - rs0: org.h2.result.LocalResultImpl@503d687a columns: 10 rows: 3 pos: 3
+2021-12-19 22:22:20 TRACE UserDaoImpl:83 - prep26: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:20 TRACE ReimbDaoImpl:140 - prep27: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:20 TRACE ReimbDaoImpl:140 - prep28: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:20 TRACE ReimbDaoImpl:140 - prep29: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:20 TRACE ReimbDaoImpl:57 - rs1: org.h2.result.LocalResultImpl@43dac38f columns: 10 rows: 3 pos: 3
+2021-12-19 22:22:21 TRACE UserDaoImpl:83 - prep44: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:21 TRACE ReimbDaoImpl:140 - prep45: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:21 TRACE ReimbDaoImpl:140 - prep46: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:21 TRACE ReimbDaoImpl:140 - prep47: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:21 TRACE ReimbDaoImpl:57 - rs2: org.h2.result.LocalResultImpl@11392934 columns: 10 rows: 3 pos: 3
+2021-12-19 22:22:21 TRACE UserDaoImpl:83 - prep62: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:140 - prep63: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:140 - prep64: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:140 - prep65: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:84 - rs3: org.h2.result.LocalResultImpl@25be7b63 columns: 10 rows: 3 pos: 3
+2021-12-19 22:22:22 TRACE UserDaoImpl:83 - prep83: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:22 TRACE UserDaoImpl:83 - prep84: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:140 - prep85: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:140 - prep86: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:140 - prep87: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:22 TRACE ReimbDaoImpl:163 - prep88: UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-19 22:22:23 TRACE ReimbDaoImpl:112 - rs4: org.h2.result.LocalResultImpl@54e041a4 columns: 10 rows: 1 pos: 1
+2021-12-19 22:22:23 TRACE ReimbDaoImpl:112 - rs5: org.h2.result.LocalResultImpl@62656be4 columns: 10 rows: 1 pos: 1
+2021-12-19 22:22:23 TRACE UserDaoImpl:83 - prep104: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:23 TRACE ReimbDaoImpl:140 - prep105: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:23 TRACE ReimbDaoImpl:140 - prep106: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:23 TRACE ReimbDaoImpl:140 - prep107: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:23 TRACE ReimbDaoImpl:84 - rs6: org.h2.result.LocalResultImpl@4c012563 columns: 10 rows: 3 pos: 3
+2021-12-19 22:22:23 TRACE UserDaoImpl:83 - prep125: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:23 TRACE UserDaoImpl:83 - prep126: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-19 22:22:24 TRACE ReimbDaoImpl:140 - prep127: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:24 TRACE ReimbDaoImpl:140 - prep128: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:24 TRACE ReimbDaoImpl:140 - prep129: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:22:24 TRACE ReimbDaoImpl:186 - prep130: UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-19 22:22:24 TRACE ReimbDaoImpl:112 - rs7: org.h2.result.LocalResultImpl@14f9390f columns: 10 rows: 1 pos: 1
+2021-12-19 22:22:24 TRACE ReimbDaoImpl:112 - rs8: org.h2.result.LocalResultImpl@7aaca91a columns: 10 rows: 1 pos: 1
+2021-12-19 22:22:29 TRACE UserDaoImpl:83 - prep6: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:29 TRACE UserDaoImpl:56 - rs0: org.h2.result.LocalResultImpl@dd0c991 columns: 7 rows: 1 pos: 1
+2021-12-19 22:22:30 TRACE UserDaoImpl:83 - prep19: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:22:30 TRACE UserDaoImpl:56 - rs1: org.h2.result.LocalResultImpl@33990a0c columns: 7 rows: 1 pos: 1
+2021-12-19 22:40:30 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@4f35dc96
+2021-12-19 22:40:30 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5a376700
+2021-12-19 22:40:48 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2026f398
+2021-12-19 22:40:53 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 7984.0, DEFAULT, NULL, 'This is a presentation', NULL, 5, NULL, DEFAULT, 4)
+2021-12-19 22:40:53 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@18808fa5
+2021-12-19 22:40:54 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@370efd90
+2021-12-19 22:40:56 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5d8212d1
+2021-12-19 22:41:18 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7f14dfa7
+2021-12-19 22:41:18 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@19b018fd
+2021-12-19 22:41:27 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@568a071d
+2021-12-19 22:41:27 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@94ee226
+2021-12-19 22:41:43 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@13d687f5
+2021-12-19 22:41:45 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4c4c7d6b
+2021-12-19 22:41:47 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2c5ab195
+2021-12-19 22:41:48 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2c638224
+2021-12-19 22:41:51 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@35c7f3f6
+2021-12-19 22:41:53 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6a2e45ec
+2021-12-19 22:41:53 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@52596f97
+2021-12-19 22:41:57 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 25
+2021-12-19 22:41:57 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@435fd221
+2021-12-19 22:42:02 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@28b27465
+2021-12-19 22:42:04 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@186f1965
+2021-12-19 22:42:04 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2194e54e
+2021-12-19 22:42:08 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@282ddaee
+2021-12-19 22:42:11 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@147a50db
+2021-12-19 22:42:14 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3034eb22
+2021-12-19 22:42:14 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@124e0fa6
+2021-12-19 22:42:19 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 22
+2021-12-19 22:42:19 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3daded9e
+2021-12-19 22:42:22 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2fdc7e31
+2021-12-19 22:42:23 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@7d3be708
+2021-12-19 22:42:24 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@654cbb29
+2021-12-19 22:42:33 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@157c9269
+2021-12-19 22:42:34 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@d47e9df
+2021-12-19 22:43:51 TRACE UserDaoImpl:83 - prep8: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:51 TRACE ReimbDaoImpl:140 - prep9: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:51 TRACE ReimbDaoImpl:140 - prep10: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:51 TRACE ReimbDaoImpl:140 - prep11: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:51 TRACE ReimbDaoImpl:84 - rs0: org.h2.result.LocalResultImpl@503d687a columns: 10 rows: 3 pos: 3
+2021-12-19 22:43:52 TRACE UserDaoImpl:83 - prep26: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:140 - prep27: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:140 - prep28: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:140 - prep29: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:57 - rs1: org.h2.result.LocalResultImpl@43dac38f columns: 10 rows: 3 pos: 3
+2021-12-19 22:43:52 TRACE UserDaoImpl:83 - prep44: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:140 - prep45: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:140 - prep46: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:140 - prep47: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:52 TRACE ReimbDaoImpl:57 - rs2: org.h2.result.LocalResultImpl@11392934 columns: 10 rows: 3 pos: 3
+2021-12-19 22:43:53 TRACE UserDaoImpl:83 - prep62: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:140 - prep63: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:140 - prep64: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:140 - prep65: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:84 - rs3: org.h2.result.LocalResultImpl@25be7b63 columns: 10 rows: 3 pos: 3
+2021-12-19 22:43:53 TRACE UserDaoImpl:83 - prep83: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:53 TRACE UserDaoImpl:83 - prep84: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:140 - prep85: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:140 - prep86: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:53 TRACE ReimbDaoImpl:140 - prep87: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:163 - prep88: UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:112 - rs4: org.h2.result.LocalResultImpl@54e041a4 columns: 10 rows: 1 pos: 1
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:112 - rs5: org.h2.result.LocalResultImpl@62656be4 columns: 10 rows: 1 pos: 1
+2021-12-19 22:43:54 TRACE UserDaoImpl:83 - prep104: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:140 - prep105: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:140 - prep106: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:140 - prep107: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:54 TRACE ReimbDaoImpl:84 - rs6: org.h2.result.LocalResultImpl@4c012563 columns: 10 rows: 3 pos: 3
+2021-12-19 22:43:54 TRACE UserDaoImpl:83 - prep125: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:43:55 TRACE UserDaoImpl:83 - prep126: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-19 22:43:55 TRACE ReimbDaoImpl:140 - prep127: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:55 TRACE ReimbDaoImpl:140 - prep128: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:55 TRACE ReimbDaoImpl:140 - prep129: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-19 22:43:55 TRACE ReimbDaoImpl:186 - prep130: UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-19 22:43:55 TRACE ReimbDaoImpl:112 - rs7: org.h2.result.LocalResultImpl@14f9390f columns: 10 rows: 1 pos: 1
+2021-12-19 22:43:55 TRACE ReimbDaoImpl:112 - rs8: org.h2.result.LocalResultImpl@7aaca91a columns: 10 rows: 1 pos: 1
+2021-12-19 22:44:04 TRACE UserDaoImpl:83 - prep6: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:44:04 TRACE UserDaoImpl:56 - rs0: org.h2.result.LocalResultImpl@dd0c991 columns: 7 rows: 1 pos: 1
+2021-12-19 22:44:05 TRACE UserDaoImpl:83 - prep19: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-19 22:44:05 TRACE UserDaoImpl:56 - rs1: org.h2.result.LocalResultImpl@33990a0c columns: 7 rows: 1 pos: 1
+2021-12-19 22:50:16 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@57fff51f
+2021-12-19 22:50:17 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@2b8d88de
+2021-12-19 22:51:58 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7e88e9f6
+2021-12-19 22:51:58 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5f412c73
+2021-12-19 22:53:45 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@66682249
+2021-12-19 22:53:46 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5d7d11ac
+2021-12-19 22:53:52 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5ce967ae
+2021-12-19 22:53:52 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@268cc5dd
+2021-12-19 22:54:03 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@377e7bba
+2021-12-19 22:54:03 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4c1e2e2
+2021-12-19 22:54:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2af93242
+2021-12-19 22:54:08 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@4f26d0d
+2021-12-19 22:54:10 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@17783179
+2021-12-19 22:54:11 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3b7c4ba8
+2021-12-19 22:54:12 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@34811bfe
+2021-12-19 22:54:13 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@6ae221e3
+2021-12-19 22:54:21 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@254d49ec
+2021-12-19 22:54:29 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7c49a4bc
+2021-12-19 22:54:31 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2c07a190
+2021-12-19 22:54:32 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@823c2a
+2021-12-20 07:13:48 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@44b39130
+2021-12-20 07:13:49 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@406d64c1
+2021-12-20 07:14:06 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 46513.0, DEFAULT, NULL, 'Hello', NULL, 5, NULL, DEFAULT, 4)
+2021-12-20 07:14:06 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@4b6109d4
+2021-12-20 07:14:15 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@2f23c146
+2021-12-20 07:14:15 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1b66b4ab
+2021-12-20 07:16:08 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@331d82a3
+2021-12-20 07:16:12 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@132b5c9a
+2021-12-20 07:16:13 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@6bb55732
+2021-12-20 07:16:23 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@477ec506
+2021-12-20 07:16:24 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@427b6e18
+2021-12-20 08:13:47 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@500eeb0b
+2021-12-20 08:13:47 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@484c85a9
+2021-12-20 08:14:02 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 465.0, DEFAULT, NULL, 'Test Approve', NULL, 5, NULL, DEFAULT, 4)
+2021-12-20 08:14:02 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5ee2f487
+2021-12-20 08:14:11 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 1121.0, DEFAULT, NULL, 'Test Deny', NULL, 5, NULL, DEFAULT, 4)
+2021-12-20 08:14:11 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@18808fa5
+2021-12-20 08:14:21 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@36f69313
+2021-12-20 08:14:21 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@1401bab3
+2021-12-20 08:14:28 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@3fbaf56d
+2021-12-20 08:14:28 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5d8212d1
+2021-12-20 08:14:36 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@46b7038a
+2021-12-20 08:14:36 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5ca639c2
+2021-12-20 08:14:44 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@155782d9
+2021-12-20 08:14:45 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@3b5bbd4d
+2021-12-20 08:14:47 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@57799fde
+2021-12-20 08:14:49 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@dda40eb
+2021-12-20 08:14:50 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5aa60b37
+2021-12-20 08:14:53 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 28
+2021-12-20 08:14:53 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@5a8bbc85
+2021-12-20 08:14:56 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5cef9d76
+2021-12-20 08:14:56 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@5dc650ea
+2021-12-20 08:14:58 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 27
+2021-12-20 08:14:59 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@58fc31bd
+2021-12-20 08:14:59 TRACE ReimbDaoImpl:216 - UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = 6, reimb_resolved = now() WHERE reimb_id = 27
+2021-12-20 08:14:59 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@4a10556
+2021-12-20 08:15:03 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@7e035860
+2021-12-20 08:15:04 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@188a0848
+2021-12-20 08:15:05 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@682d4c9
+2021-12-20 08:15:08 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@2055134b
+2021-12-20 08:15:09 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@8091bf8
+2021-12-20 08:15:09 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@73d9ad63
+2021-12-20 08:15:15 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@5772de8a
+2021-12-20 08:15:15 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@392ef929
+2021-12-20 08:15:29 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@425ac1b4
+2021-12-20 08:15:36 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@8701197
+2021-12-20 08:15:36 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@19107602
+2021-12-20 08:16:02 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@7acbd759
+2021-12-20 08:16:02 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@566026cd
+2021-12-20 08:16:03 TRACE ReimbDaoImpl:140 - INSERT INTO ers_reimbursement VALUES(DEFAULT, 123.5, DEFAULT, NULL, 'Selenium Reimbursement', NULL, 5, NULL, DEFAULT, 1)
+2021-12-20 08:16:03 TRACE ReimbDaoImpl:84 - org.postgresql.jdbc.PgResultSet@7813f312
+2021-12-20 08:16:11 TRACE UserDaoImpl:56 - org.postgresql.jdbc.PgResultSet@502e613f
+2021-12-20 08:16:11 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@236406df
+2021-12-20 08:16:13 TRACE ReimbDaoImpl:57 - org.postgresql.jdbc.PgResultSet@1ca2807a
+2021-12-20 08:16:14 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@31dddd2a
+2021-12-20 08:16:15 TRACE ReimbDaoImpl:112 - org.postgresql.jdbc.PgResultSet@645446f3
+2021-12-20 08:16:52 TRACE UserDaoImpl:83 - prep8: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:52 TRACE ReimbDaoImpl:140 - prep9: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:52 TRACE ReimbDaoImpl:140 - prep10: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:52 TRACE ReimbDaoImpl:140 - prep11: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:52 TRACE ReimbDaoImpl:84 - rs0: org.h2.result.LocalResultImpl@503d687a columns: 10 rows: 3 pos: 3
+2021-12-20 08:16:53 TRACE UserDaoImpl:83 - prep26: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:140 - prep27: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:140 - prep28: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:140 - prep29: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:57 - rs1: org.h2.result.LocalResultImpl@43dac38f columns: 10 rows: 3 pos: 3
+2021-12-20 08:16:53 TRACE UserDaoImpl:83 - prep44: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:140 - prep45: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:140 - prep46: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:140 - prep47: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:53 TRACE ReimbDaoImpl:57 - rs2: org.h2.result.LocalResultImpl@11392934 columns: 10 rows: 3 pos: 3
+2021-12-20 08:16:54 TRACE UserDaoImpl:83 - prep62: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:140 - prep63: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:140 - prep64: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:140 - prep65: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:84 - rs3: org.h2.result.LocalResultImpl@25be7b63 columns: 10 rows: 3 pos: 3
+2021-12-20 08:16:54 TRACE UserDaoImpl:83 - prep83: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:54 TRACE UserDaoImpl:83 - prep84: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:140 - prep85: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:140 - prep86: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:140 - prep87: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:163 - prep88: UPDATE ers_reimbursement SET reimb_status_id = 2, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:112 - rs4: org.h2.result.LocalResultImpl@54e041a4 columns: 10 rows: 1 pos: 1
+2021-12-20 08:16:54 TRACE ReimbDaoImpl:112 - rs5: org.h2.result.LocalResultImpl@62656be4 columns: 10 rows: 1 pos: 1
+2021-12-20 08:16:55 TRACE UserDaoImpl:83 - prep104: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:140 - prep105: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:140 - prep106: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:140 - prep107: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:84 - rs6: org.h2.result.LocalResultImpl@4c012563 columns: 10 rows: 3 pos: 3
+2021-12-20 08:16:55 TRACE UserDaoImpl:83 - prep125: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:16:55 TRACE UserDaoImpl:83 - prep126: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'kevchilds', 2: 'password', 3: 'Kevin', 4: 'Si', 5: '1@gmail', 6: 2}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:140 - prep127: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 30.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:140 - prep128: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 40.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:55 TRACE ReimbDaoImpl:140 - prep129: INSERT INTO ers_reimbursement VALUES(DEFAULT, ?, DEFAULT, NULL, ?, NULL, ?, NULL, DEFAULT, ?); {1: 50.0, 2: 'Pet Goldfish killed', 3: 1, 4: 1}
+2021-12-20 08:16:56 TRACE ReimbDaoImpl:186 - prep130: UPDATE ers_reimbursement SET reimb_status_id = 3, reimb_resolver = ?, reimb_resolved = now() WHERE reimb_id = ?; {1: 2, 2: 1}
+2021-12-20 08:16:56 TRACE ReimbDaoImpl:112 - rs7: org.h2.result.LocalResultImpl@14f9390f columns: 10 rows: 1 pos: 1
+2021-12-20 08:16:56 TRACE ReimbDaoImpl:112 - rs8: org.h2.result.LocalResultImpl@7aaca91a columns: 10 rows: 1 pos: 1
+2021-12-20 08:17:17 TRACE UserDaoImpl:83 - prep6: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:17:17 TRACE UserDaoImpl:56 - rs0: org.h2.result.LocalResultImpl@dd0c991 columns: 7 rows: 1 pos: 1
+2021-12-20 08:17:18 TRACE UserDaoImpl:83 - prep19: INSERT INTO ers_users VALUES(DEFAULT, ?, ?, ?, ?, ?, ?); {1: 'joesi', 2: 'password', 3: 'Joe', 4: 'Si', 5: '@gmail', 6: 1}
+2021-12-20 08:17:18 TRACE UserDaoImpl:56 - rs1: org.h2.result.LocalResultImpl@33990a0c columns: 7 rows: 1 pos: 1

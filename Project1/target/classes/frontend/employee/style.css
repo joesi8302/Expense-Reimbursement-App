@@ -1,0 +1,31 @@
+body{
+    background-image: url("../img/city.jpg");
+    
+}
+
+
+.description{
+    width: 20%;
+    word-wrap: break-word;
+}
+
+.table{
+    table-layout: fixed;
+    width: 100vw;
+}
+
+.navbar{
+    height: 8vh;
+    
+}
+
+#title-header{
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+}
+
+#reimbList :hover{
+     background-color: rgba(187, 184, 184, 0.925);
+}
